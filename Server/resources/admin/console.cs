@@ -85,5 +85,17 @@ namespace admin
             StopCommand(sender, name);
             StartCommand(sender, name);
         }
+
+        // MARK: - Helpers for admins
+
+        [Command("vehicle", ACLRequired = true)]
+        public void CreateVehicleCommand(Client sender, string name)
+        {
+            var model = API.vehicleNameToModel(name);
+            var pos = sender.position;
+            pos.X += 5;
+            var rot = sender.rotation;
+            API.createVehicle(model, pos, rot, 0, 0);
+        }
     }
 }

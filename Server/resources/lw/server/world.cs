@@ -29,12 +29,10 @@ namespace lw
             if (API.isPlayerLoggedIn(player))
             {
                 player.sendChatMessage("Вы авторизованы как " + API.getPlayerAclGroup(player) + "!");
-                player.freeze(false);
             }
             else
             {
                 player.sendChatMessage("Вы не авторизованы. (" + player.socialClubName + ")");
-                player.freeze(true);
                 API.triggerClientEvent(player, "main.presentStartWindow");
             }
 
@@ -43,6 +41,7 @@ namespace lw
 
         public void loadPlayerView(Client player)
         {
+            player.freeze(false);
             player.setSkin(API.pedNameToModel("FreeModeMale01"));
         }
     }
