@@ -34,7 +34,6 @@ namespace lw
             
             player.setSkin(API.pedNameToModel("FreeModeMale01"));
             player.dimension = isAuthorized ? 0 : 1;
-            player.freeze(!isAuthorized);
 
             if (isAuthorized)
             {
