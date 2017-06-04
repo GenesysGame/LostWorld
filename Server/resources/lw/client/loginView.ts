@@ -8,3 +8,11 @@ API.onUpdate.connect(function () {
     var y = scrSize.Height;
     API.drawText(position.ToString(), x, y, 0.3, 255, 255, 255, 255, 0, 1, false, true, 0);
 });
+
+API.onServerEventTrigger.connect(function (name, args) {
+    switch (name) {
+        case "client:presentStartWindow":
+            API.sendNotification("TODO: Display login view...");
+            break;
+    }
+});

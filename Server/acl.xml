@@ -25,6 +25,7 @@
     <right name="command.settime" access="false" />
     <right name="command.setweather" access="false" />
     <right name="command.blackout" access="false" />
+    <right name="command.vehicle" access="false" />
   </acl>
   <acl name="Moderator">
     <right name="command.kick" access="true" />
@@ -40,5 +41,6 @@
     <right name="command.stop" access="true" />
     <right name="command.start" access="true" />
     <right name="command.restart" access="true" />
+    <right name="command.vehicle" access="true" />
   </acl>
 </acl>

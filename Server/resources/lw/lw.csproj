@@ -66,6 +66,7 @@
     <TypeScriptCompile Include="client\types-gtanetwork\Xilium.CefGlue.dll.d.ts" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="client\loginView.html" />
     <Content Include="meta.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

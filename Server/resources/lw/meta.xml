@@ -3,5 +3,6 @@
 
   <script src="server/world.cs" type="server" lang="csharp" />
   <script src="client/loginView.js" type="client" lang="javascript" />
+    <file src="client/loginView.html" />
 
 </meta>

@@ -14,6 +14,7 @@ namespace lw
         {
             API.onResourceStart += onStart;
             API.onPlayerConnected += onPlayerConnected;
+            API.onPlayerFinishedDownload += loadPlayerView;
         }
 
         public void onStart()
@@ -25,24 +26,26 @@ namespace lw
         public void onPlayerConnected(Client player)
         {
             API.sendChatMessageToAll("Игрок " + player.name + " вошел на сервер!");
+        }
 
-            if (API.isPlayerLoggedIn(player))
+        public void loadPlayerView(Client player)
+        {
+            var isAuthorized = API.isPlayerLoggedIn(player);
+            
+            player.setSkin(API.pedNameToModel("FreeModeMale01"));
+            player.dimension = isAuthorized ? 0 : 1;
+            player.freeze(!isAuthorized);
+
+            if (isAuthorized)
             {
                 player.sendChatMessage("Вы авторизованы как " + API.getPlayerAclGroup(player) + "!");
             }
             else
             {
                 player.sendChatMessage("Вы не авторизованы. (" + player.socialClubName + ")");
-                API.triggerClientEvent(player, "main.presentStartWindow");
+                API.triggerClientEvent(player, "client:presentStartWindow");
             }
 
-            loadPlayerView(player);
-        }
-
-        public void loadPlayerView(Client player)
-        {
-            player.freeze(false);
-            player.setSkin(API.pedNameToModel("FreeModeMale01"));
         }
     }
 
