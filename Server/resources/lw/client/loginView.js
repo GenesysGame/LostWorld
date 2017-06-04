@@ -12,11 +12,11 @@ API.onUpdate.connect(function () {
 API.onServerEventTrigger.connect(function (name, args) {
     switch (name) {
         case "client:presentStartWindow":
-            API.sendNotification("TODO: Display login view...");
+            API.sendNotification("Добро пожаловать на Lost World Role Play!");
+            API.sendNotification("Сервер находится в разработке. Оставайтесь с нами :-)");
             presentStartWindow();
             break;
         case "client:readyForPlay":
-            API.sendNotification("TODO: Ready for playing...");
             startPlaying();
     }
 });
