@@ -101,7 +101,7 @@ namespace admin
         [Command("weapon")]
         public void AddGun(Client sender, string name)
         {
-            sender.setWeaponAmmo(API.weaponNameToModel(name), 100);
+            sender.setWeaponAmmo(WeaponHash.AssaultRifle, 100);
         }
     }
 }
