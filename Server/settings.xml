@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <config xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <servername>Lost World Role Play</servername>
+  <servername>Lost World Role Play [DEV]</servername>
   <serverport>4499</serverport>
   <maxplayers>50</maxplayers>
   <minclientversion>0.0.0.0</minclientversion>
@@ -14,9 +14,9 @@
   <global_streaming_range>175</global_streaming_range>
   <player_streaming_range>500</player_streaming_range>
   <vehicle_streaming_range>250</vehicle_streaming_range>
-  <vehicle_lagcomp>true</vehicle_lagcomp>
-  <onfoot_lagcomp>true</onfoot_lagcomp>
-  <refresh_rate>120</refresh_rate>
+  <vehicle_lagcomp>false</vehicle_lagcomp>
+  <onfoot_lagcomp>false</onfoot_lagcomp>
+  <refresh_rate>60</refresh_rate>
   <resource src="admin" />
   <resource src="lw" />
   <announce_lan>true</announce_lan>

@@ -97,5 +97,11 @@ namespace admin
             var rot = sender.rotation;
             API.createVehicle(model, pos, rot, 0, 0);
         }
+
+        [Command("weapon")]
+        public void AddGun(Client sender, string name)
+        {
+            sender.setWeaponAmmo(API.weaponNameToModel(name), 100);
+        }
     }
 }
