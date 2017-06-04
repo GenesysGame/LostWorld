@@ -30,7 +30,7 @@ namespace lw
 
         public void loadPlayerView(Client player)
         {
-            var isAuthorized = API.isPlayerLoggedIn(player);
+            var isAuthorized = true;// API.isPlayerLoggedIn(player);
             
             player.setSkin(API.pedNameToModel("FreeModeMale01"));
             player.dimension = isAuthorized ? 0 : 1;
