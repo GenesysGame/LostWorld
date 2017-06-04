@@ -99,9 +99,9 @@ namespace admin
         }
 
         [Command("weapon")]
-        public void AddGun(Client sender, string name)
+        public void WeaponCommand(Client sender, string name)
         {
-            sender.setWeaponAmmo(WeaponHash.AssaultRifle, 100);
+            API.givePlayerWeapon(sender, API.weaponNameToModel(name), 500, true, true);
         }
     }
 }

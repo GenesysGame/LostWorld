@@ -14,7 +14,9 @@ namespace lw
         {
             API.onResourceStart += onStart;
             API.onPlayerConnected += onPlayerConnected;
-            API.onPlayerFinishedDownload += loadPlayerView;
+            API.onPlayerFinishedDownload += onPlayerFinishedDownload;
+
+            API.onClientEventTrigger += onClientEvent;
         }
 
         public void onStart()
@@ -25,26 +27,36 @@ namespace lw
 
         public void onPlayerConnected(Client player)
         {
-            API.sendChatMessageToAll("Игрок " + player.name + " вошел на сервер!");
+            API.sendChatMessageToAll(player.name + " вошел на сервер. Всего: " + API.getAllPlayers().Count);
         }
 
-        public void loadPlayerView(Client player)
+        public void onPlayerFinishedDownload(Client player)
         {
-            var isAuthorized = true;// API.isPlayerLoggedIn(player);
-            
+            player.freeze(true);
+            player.dimension = 1;
+            player.position = new Vector3(-268.9566, 6643.172, 7.5);
+
+            API.triggerClientEvent(player, "client:presentStartWindow");
+        }
+
+        public void onClientEvent(Client player, string eventName, params object[] arguments)
+        {
+            switch (eventName)
+            {
+                case "server:readyForPlay":
+                    onPlayerReadyForPlay(player);
+                    break;
+                default: break;
+            }
+        }
+
+        public void onPlayerReadyForPlay(Client player)
+        {
+            player.freeze(false);
+            player.dimension = 0;
             player.setSkin(API.pedNameToModel("FreeModeMale01"));
-            player.dimension = isAuthorized ? 0 : 1;
 
-            if (isAuthorized)
-            {
-                player.sendChatMessage("Вы авторизованы как " + API.getPlayerAclGroup(player) + "!");
-            }
-            else
-            {
-                player.sendChatMessage("Вы не авторизованы. (" + player.socialClubName + ")");
-                API.triggerClientEvent(player, "client:presentStartWindow");
-            }
-
+            API.triggerClientEvent(player, "client:readyForPlay");
         }
     }
 
