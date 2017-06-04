@@ -14,8 +14,8 @@
   <global_streaming_range>175</global_streaming_range>
   <player_streaming_range>500</player_streaming_range>
   <vehicle_streaming_range>250</vehicle_streaming_range>
-  <vehicle_lagcomp>false</vehicle_lagcomp>
-  <onfoot_lagcomp>false</onfoot_lagcomp>
+  <vehicle_lagcomp>true</vehicle_lagcomp>
+  <onfoot_lagcomp>true</onfoot_lagcomp>
   <refresh_rate>60</refresh_rate>
   <resource src="admin" />
   <resource src="lw" />
